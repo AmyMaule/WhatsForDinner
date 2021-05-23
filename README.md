@@ -43,10 +43,10 @@ Due to some issues with the Spoonacular API, What’s For Dinner is more proof o
 
 What’s For Dinner can be viewed from any screen size :
 
-<img src="./images/whatsfordinner-search-small.jpg">
-<img src="./images/whatsfordinner-search-medium.jpg">
-<img src="./images/whatsfordinner-search-lg.jpg">
-<img src="./images/whatsfordinner-search-xl.jpg">
+<img src="./images/whatsfordinner-search-small.jpg" width="200px">
+<img src="./images/whatsfordinner-search-medium.jpg" width="300px">
+<img src="./images/whatsfordinner-search-lg.jpg" width="400px">
+<img src="./images/whatsfordinner-search-xl.jpg" width="500px">
 
 <!--  CURRENT ISSUES -->
 ### Current Issues
