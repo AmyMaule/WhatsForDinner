@@ -47,7 +47,7 @@ What’s For Dinner can be viewed from any screen size :<br><br>
 
 <div align="center">
   <img src="./images/whatsfordinner-search-small.jpg" height="410px">
-  <img src="./images/whatsfordinner-search-medium.jpg" height="410px">
+  <img src="./images/whatsfordinner-search-medium.jpg" height="410px"><br>
   <img src="./images/whatsfordinner-search-lg.jpg" height="410px">
 </div>
 <br><br>
