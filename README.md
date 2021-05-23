@@ -39,7 +39,7 @@ Due to some issues with the Spoonacular API, What’s For Dinner is more proof o
 
 ## Demo & Screenshots
 
-./images/whatsfordinner-fullpage.jpg
+<img src="./images/whatsfordinner-fullpage.jpg">
 
 What’s For Dinner can be viewed from any screen size :
 
