@@ -389,6 +389,7 @@ function fetchRecipes(includeIngList, excludeIngList, includeCuisineList, exclud
 
 // The displayRecipes() function hides the search parameter container and shows the recipes from the API
 function displayRecipes(recipes) {
+    window.scrollTo(0,0);
     // recipeResults is an array of recipes that match the search criteria
     let recipeResults = recipes.results;
     if (recipeResults.length == 0) {
@@ -445,6 +446,7 @@ function displayRecipes(recipes) {
 searchButton.addEventListener("click", getFinalReadyTime);
 
 function getRandomRecipe() {
+    window.scrollTo(0,0);
     starterResult.innerHTML = "";
     starterNoResult.innerHTML = "";
     fetch(`${api.base}?apiKey=${api.key}&addRecipeInformation=true&sort=random&number=1`)
@@ -476,6 +478,7 @@ function getRandomRecipe() {
 randomRecipe.addEventListener("click", getRandomRecipe);
 
 function amend() {
+    window.scrollTo(0,0);
     if (searchParams.classList.contains("hide")) searchParams.classList.remove("hide");
     starterResult.innerHTML = "";
     starterNoResult.innerHTML = "";
@@ -486,7 +489,6 @@ function reset() {
     // This seemed to be the easiest way to reset everything
     window.location = window.location;
 }
-
 document.querySelector(".title").addEventListener("click", reset);
 
 function hide() {
@@ -502,6 +504,7 @@ searchByRecipeName.addEventListener("click", function() {
 });
 
 function searchQueryRecipeName() {
+    window.scrollTo(0,0);
     starterResult.innerHTML = "";
     starterNoResult.innerHTML = "";
     fetch(`${api.base}?apiKey=${api.key}&titleMatch=${searchBar.value}&addRecipeInformation=true&sort=random&number=10`)
