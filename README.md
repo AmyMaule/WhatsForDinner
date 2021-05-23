@@ -9,7 +9,7 @@
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
-    <li><a href="#demo-screenshots">Demo & Screenshots</a></li>
+    <li><a href="#demo-&-screenshots">Demo & Screenshots</a></li>
     <li><a href="#current-issues">Current Issues</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
@@ -42,11 +42,11 @@ Due to some issues with the Spoonacular API outlined below, What’s For Dinner 
 <br><br>
 What’s For Dinner can be viewed from any screen size :<br><br>
 
-<span align="center">
+<div align="center">
   <img src="./images/whatsfordinner-search-small.jpg" height="350px">
   <img src="./images/whatsfordinner-search-medium.jpg" height="350px">
   <img src="./images/whatsfordinner-search-lg.jpg" height="350px">
-</span>
+</div>
 <br><br>
 
 <!--  CURRENT ISSUES -->
