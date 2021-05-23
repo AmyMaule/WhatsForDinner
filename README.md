@@ -21,10 +21,8 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot]](https://example.com)
-
-What’s For Dinner uses the Spoonacular API (https://spoonacular.com/food-api) to search for recipes using various search parameters including macronutrients, diets, prep/cook time, cuisines and specific ingredients. It is also possible to search for recipes directly using keywords in the title, and to generate random recipes.
-Due to some issues with the Spoonacular API, What’s For Dinner is more proof of concept than a tool for reliable recipe searching.
+What’s For Dinner uses the [Spoonacular API](https://spoonacular.com/food-api) to search for recipes using various search parameters including macronutrients, diets, prep/cook time, cuisines and specific ingredients. Each of these parameters is optional. It is also possible to search for recipes directly using keywords in the title, and to generate random recipes.
+Due to some issues with the Spoonacular API outlined below, What’s For Dinner is more proof of concept than a tool for reliable recipe searching.
 
 
 ### Built With
@@ -41,19 +39,19 @@ Due to some issues with the Spoonacular API, What’s For Dinner is more proof o
 <div align="center">
   <img src="./images/whatsfordinner-fullpage.jpg" width="85%">
 </div>
-<br><br><br>
+<br><br>
 What’s For Dinner can be viewed from any screen size :<br><br>
 
-<span>
-<img src="./images/whatsfordinner-search-small.jpg" height="320px">
-<img src="./images/whatsfordinner-search-medium.jpg" height="320px">
-<img src="./images/whatsfordinner-search-lg.jpg" height="320px">
+<span align="center">
+  <img src="./images/whatsfordinner-search-small.jpg" height="350px">
+  <img src="./images/whatsfordinner-search-medium.jpg" height="350px">
+  <img src="./images/whatsfordinner-search-lg.jpg" height="350px">
 </span>
 <br><br>
 
 <!--  CURRENT ISSUES -->
 ## Current Issues
-There are several known issues related to the accuracy and consistency of the Spoonacular API data. The 3 examples given below are not bugs I can fix, they are not related to What's For Dinner, but to the Spoonacular API.
+There are several issues caused by the inconsistency of the Spoonacular API data. The examples given below are bugs that affect What's For Dinner, but are related to the Spoonacular API.
 
 * Many Spoonacular recipes do not have cuisines included, which makes the “Search by cuisine” feature a little unreliable.
 
@@ -75,4 +73,4 @@ You can request new features or modify current features [here](https://github.co
 <!-- LICENSE -->
 ## License
 
-MIT © Amy Maule
+MIT © [Amy Maule](https://github.com/AmyMaule)
