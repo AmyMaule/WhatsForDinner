@@ -1,4 +1,5 @@
-# WhatsForDinner
+# What's For Dinner
+
 <!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
@@ -43,9 +44,9 @@ Due to some issues with the Spoonacular API outlined below, What’s For Dinner 
 What’s For Dinner can be viewed from any screen size :<br><br>
 
 <div align="center">
-  <img src="./images/whatsfordinner-search-small.jpg" height="350px">
-  <img src="./images/whatsfordinner-search-medium.jpg" height="350px">
-  <img src="./images/whatsfordinner-search-lg.jpg" height="350px">
+  <img src="./images/whatsfordinner-search-small.jpg" height="410px">
+  <img src="./images/whatsfordinner-search-medium.jpg" height="410px">
+  <img src="./images/whatsfordinner-search-lg.jpg" height="410px">
 </div>
 <br><br>
 
@@ -60,7 +61,7 @@ There are several issues caused by the inconsistency of the Spoonacular API data
   - “Paleo” is listed as a diet type, but is present in very few searches, whereas “Paleolithic” is not listed as a diet type, but has been present in many searches
 
 * There are multiple issues with the “include ingredients” feature – any ingredients selected must be included in the recipe for it to show up (unlike a “What’s in my fridge” style recipe search). Sometimes a search using 2 ingredients known to be in a Spoonacular recipe will produce no results. For example:
-  - A “search recipes by title” search for Raspberry produces a recipe "[Strawberry-Raspberry Cobbler](https://spoonacular.com/strawberry-raspberry-cobbler-661930)", but an “include ingredients” search of Strawberries and Raspberries produces no results at all. My theory is that the ingredients for this recipe ask for “fresh strawberries” and “fresh raspberries” and that is why the API is not matching “strawberries” or “raspberries” to this recipe.
+  - A “search recipes by title” search for Raspberry produces a recipe "[Strawberry-Raspberry Cobbler](https://spoonacular.com/strawberry-raspberry-cobbler-661930)", but an “include ingredients” search of Strawberries and Raspberries produces no results at all. It is possible that as the ingredients for this recipe ask for “fresh strawberries” and “fresh raspberries”, the API is not matching “strawberries” or “raspberries” to this recipe.
   - There are many other examples like the one above; the include ingredients feature seems overall to not be well supported by the Spoonacular API.
 
 
