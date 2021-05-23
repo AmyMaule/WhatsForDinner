@@ -38,18 +38,20 @@ Due to some issues with the Spoonacular API, What’s For Dinner is more proof o
 
 
 ## Demo & Screenshots
-
-<img src="./images/whatsfordinner-fullpage.jpg" width="85%">
-
-What’s For Dinner can be viewed from any screen size :
+<div align="center">
+  <img src="./images/whatsfordinner-fullpage.jpg" width="85%">
+</div>
+What’s For Dinner can be viewed from any screen size :<br>
 
 <span>
 <img src="./images/whatsfordinner-search-small.jpg" height="320px">
 <img src="./images/whatsfordinner-search-medium.jpg" height="320px">
 <img src="./images/whatsfordinner-search-lg.jpg" height="320px">
 </span>
+<br><br>
+
 <!--  CURRENT ISSUES -->
-### Current Issues
+## Current Issues
 There are several known issues related to the accuracy and consistency of the Spoonacular API data. The 3 examples given below are not bugs I can fix, they are not related to What's For Dinner, but to the Spoonacular API.
 
 * Many Spoonacular recipes do not have cuisines included, which makes the “Search by cuisine” feature a little unreliable.
@@ -66,7 +68,7 @@ There are several known issues related to the accuracy and consistency of the Sp
 <!-- CONTRIBUTING -->
 ## Contributing
 
-If you find a bug, please open an issue [here](https://github.com/AmyMaule/WhatsForDinner/issues/new), including as much information as you can.
+If you find a bug, please open an issue [here](https://github.com/AmyMaule/WhatsForDinner/issues/new), including as much information as you can.<br>
 You can request new features or modify current features [here](https://github.com/AmyMaule/WhatsForDinner/issues/new) - please include search queries and expected results.
 
 <!-- LICENSE -->
