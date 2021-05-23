@@ -25,6 +25,8 @@
 What’s For Dinner uses the [Spoonacular API](https://spoonacular.com/food-api) to search for recipes using various search parameters including macronutrients, diets, prep/cook time, cuisines and specific ingredients. Each of these parameters is optional. It is also possible to search for recipes directly using keywords in the title, and to generate random recipes.
 Due to some issues with the Spoonacular API outlined below, What’s For Dinner is more proof of concept than a tool for reliable recipe searching.
 
+The "include cuisine" and "exclude cuisine" dropdown lists are populated using the cuisines listed [here](https://spoonacular.com/food-api/docs#Cuisines)
+The "include ingredients" and "exclude ingredients" dropdown lists are populated using Spoonacular's top 1000 ingredients, downloadable [here](https://spoonacular.com/application/frontend/downloads/top-1k-ingredients.csv).
 
 ### Built With
 
