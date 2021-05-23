@@ -1,0 +1,792 @@
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Niconne&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crete+Round&display=swap');
+* {
+    font-family: "Bree Serif", cursive;
+    color: rgb(252, 236, 236);
+}
+
+/* placing custom properties in the root makes them globally available */
+:root {
+    --clr-pink: rgba(230, 59, 82, 0.824);
+    --clr-darkgrey: rgb(48, 46, 46);
+}
+
+body {
+    background-color: white;
+    background-image: url("./Images/mediterranea.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    overflow-x: hidden;
+}
+
+.body-wrap {
+    /* this alters the background image opacity */
+    background-image: linear-gradient(
+        to top,
+        rgba(94, 94, 94, 0.5),
+        rgba(49, 49, 49, 0.5)
+    );
+    min-height: 100vh;
+    min-width: 100vw;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 20rem;
+}
+
+.dark-header, .dark-header * {
+    color: rgba(252, 185, 185, 0.9);
+}
+
+.main-header {
+    background-color: var(--clr-darkgrey);
+    color: white;
+    line-height: 150px;
+}
+
+.title {
+    font-family: "Niconne", cursive;
+    line-height: 150px;
+    font-size: 5rem;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 1150px) and (min-width: 990px) {
+    .title {
+        font-size: 4.3rem;
+    }
+}
+
+@media only screen and (max-width: 590px) {
+    .title {
+        font-size: 4rem;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .title {
+        font-size: 2.8rem;
+    }
+}
+
+@media only screen and (max-width: 351px) {
+    .title {
+        font-size: 2.1rem;
+    }
+}
+
+.btn-container {
+    background-color: rgb(48, 46, 46);
+    width: 100%;
+}
+
+@media only screen and (max-width: 991px) {
+    .title {
+        line-height: 100px;
+    }
+
+    .btn-small-height {
+        line-height: 90px;
+        max-height: 90px;
+    }
+}
+
+.btn {
+    background-color: rgb(66, 66, 66);
+    /* this keeps the text in the middle of the button */
+    border: none;
+    width: 230px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: #fff;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.btn span {
+    font-weight: normal;
+    transition: all 0.3s;
+    color: white;
+}
+
+/* this adds the borders above and below */
+.btn::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.3s;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-top-color: rgba(255, 255, 255, 0.5);
+    border-bottom-color: rgba(255, 255, 255, 0.5);
+    transform: scale(0.1, 1);
+}
+
+.btn:hover {
+    background: none;
+}
+
+.btn:hover span {
+    letter-spacing: 2px;
+}
+
+.btn:hover::before {
+    opacity: 1;
+    transform: scale(1, 1);
+}
+
+/* this positions the faded background colour on top of the button */
+.btn::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    transition: all 0.3s;
+}
+
+/* this keeps the zero opacity on hover */
+.btn:hover::after {
+    opacity: 0;
+    transform: scale(0.1, 1);
+}
+
+.btn:active span {
+    letter-spacing: 1px;
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+/* end of header button styling */
+
+/* for the second row in the header to align to the top row of the grid */
+.no-margin {
+    margin: 0;
+}
+
+/* this is the beginning of the search box jumbotron styling */
+.search-params {
+    background-color: rgba(49, 37, 37, 0.7);
+    /* this keeps it away from the header */
+    margin-top: 3rem;
+    padding: 0;
+}
+
+.search-heading {
+    margin-left: 1.5rem;
+    padding-top: 1rem;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.container-inner {
+    margin: 0;
+}
+
+.ready-time-container label {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.radio-container {
+    display: inline-block;
+    padding: 5px;
+}
+
+.ready-header {
+    padding-left: 1.5rem;
+    margin-right: 0;
+}
+
+.ready-label {
+    cursor: pointer;
+    border: 1px solid rgb(134, 112, 112);
+    background: transparent;
+    border-radius: 3px;
+    align-items: center;
+    display: inline-block;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    transition: 0.2s all ease-in-out;
+    width: 85%;
+    min-width: 170px;
+}
+
+@media only screen and (max-width: 770px) {
+    .ready-label {
+        width: 35%;
+    }
+}
+
+/* this hides the radio buttons for the ready time boxes */
+.radio-container input[type="radio"] {
+    display: none;
+}
+
+.radio-container input[type="radio"]:checked + label {
+    background: var(--clr-pink);
+    color: black;
+    border: 1px solid rgba(32, 30, 30, 0.1);
+}
+/* end of ready time */
+
+/* start of nutrients */
+.nutrients * {
+    font-size: 1.2rem;
+}
+
+@media only screen and (max-width: 992px) {
+    .nutrients * {
+        font-size: 1.1rem;
+    }
+}
+
+.nutrient-header {
+    margin-left: 1.5rem;
+    margin-top: 1.5rem;
+    text-decoration: underline;
+}
+
+/* removing the arrows on the number inputs */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Removing the arrows on the number inputs in firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.num-input {
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid rgb(37, 37, 37);
+    margin: 1rem;
+    margin-right: 0;
+    height: 35px;
+    padding: 0;
+    background-color: rgb(54, 54, 54);
+}
+
+.num-input:focus {
+    outline: none;
+    background-color: var(--clr-darkgrey);
+}
+
+@media only screen and (max-width: 767px) {
+    .num-input {
+        margin-left: 3rem;
+    }
+}
+
+.range-input {
+    padding: 0;
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    height: 8px;
+    background: #bcbdf0;
+    outline: none;
+    /* Set transparency to 0.7, then set it to 1 on hover */
+    opacity: 0.7; 
+    /* 0.2 seconds transition on hover */
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+}
+
+.range-input:hover {
+    opacity: 1;
+  }
+  
+  .range-input::-moz-range-thumb, .range-input::-webkit-slider-thumb {
+     /* Override default look using appearance: none*/
+    -webkit-appearance: none;
+    appearance: none;
+     /* 20px is the height of the slider handle */
+    height: 20px;
+    background-color: #50a1ec;
+    border: 2px solid #076fb4d0;
+    cursor: pointer;
+  }
+  
+.extra-padding-left {
+    padding-left: 2.5rem;
+}
+
+@media only screen and (max-width: 767px) {
+    .extra-padding-left {
+        padding-left: 1.5rem;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .num-input {
+        margin-left: 4rem;
+    }
+}
+
+@media only screen and (max-width: 430px) {
+    .nutrients * {
+        font-size: 1rem;
+    }
+}
+
+.cuisine-selector-include {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.small-header {
+    font-size: 1.1rem;
+    margin-left: 1.5rem;
+}
+
+/* this edits the list that drops down for each of the choices js elements*/
+.choices__item {
+    background-color: rgba(30, 31, 31, 0.863);
+    letter-spacing: 1px;
+    color: rgb(255, 208, 208);
+}
+
+.choices__list--dropdown .choices__item--selectable.is-highlighted {
+    background-color: #17B890;
+    color: black;
+}
+
+.choices__list--multiple .choices__item.is-highlighted {
+    background-color: #0fac77;
+  }
+
+.choices__button {
+    border-radius: 5px;
+    margin: 0 -1px 0 5px;
+    border: none;
+}
+
+.choices__inner {
+    border: 1px solid rgb(37, 37, 37);
+    background-color: var(--clr-darkgrey);
+}
+
+/* this styles the placeholder text */
+.choices__inner * {
+    font-size: 1rem;
+}
+
+.choices__inner {
+    border-radius: 10px;
+}
+
+.add-marg {
+    margin-top: 3rem;
+}
+ 
+.choices__list--multiple .choices__item {
+    background-color: #0fac77;
+    border: 1px solid rgba(32, 30, 30, 0.1);
+    border-radius: 5px;
+    color: black;
+    font-size: 0.9rem;
+}
+
+.choices__input {
+background-color: var(--clr-darkgrey);
+}
+
+.small-subheader {
+    font-size: 0.9rem;
+    font-weight: normal;
+    margin-left: 1.5rem;
+    font-family: 'Crete Round', serif;
+    color: rgb(214, 214, 214);
+}
+/* end of include and exclude ingredients */
+
+/* start of diet type */
+.radio-container input[type="checkbox"] {
+    display: none;
+}
+
+.radio-container input[type="checkbox"]:checked + label {
+    background: var(--clr-pink);
+    color: black;
+    border: 1px solid rgba(32, 30, 30, 0.1);
+}
+
+.diet-type-container {
+      margin-top: 2.5rem;
+}
+
+.radio-container input[name="diet-type"]:checked + label {
+background-color: var(--clr-pink);
+color: black;
+border: 1px solid rgba(32, 30, 30, 0.1);
+}
+/* end of diet type */
+
+/* start of search button styling */
+ .search-btn {
+   text-decoration: none;
+   -webkit-transition: 0.2s all ease;
+   transition: 0.2 ease all;
+   font-size: 18px;
+   letter-spacing: 2px;
+   text-transform: uppercase;
+   display: inline-block;
+   text-align: center;
+   width: 270px;
+   height: 80px;
+   font-size: 2rem;
+   font-weight: bold;
+   padding: 14px 0px;
+   border: 4px solid var(--clr-pink);
+   border-radius: 4px;
+   position: relative;
+   background-color: transparent;
+   /* z index of 0 keeps it hidden if either of the ingredient input bars are open */
+   z-index: 0;
+   margin-top: 1rem;
+   margin-bottom: 2rem;
+ }
+
+ .search-btn:focus {
+     outline: none;
+ }
+ 
+ .search-btn:active {
+     font-size: 2.1rem;
+     box-shadow: 1px 2px 2px 1px rgba(230, 59, 82, 0.3);
+}
+ 
+ .search-btn:before {
+   -webkit-transition: 0.5s all ease;
+   transition: 0.5s all ease;
+   position: absolute;
+   top: 0;
+   left: 50%;
+   right: 50%;
+   bottom: 0;
+   opacity: 0;
+   content: "";
+   background-color: var(--clr-pink);
+   z-index: -1;
+   
+ }
+ .search-btn:hover:before {
+   -webkit-transition: 0.5s all ease;
+   transition: 0.5s all ease;
+   left: 0;
+   right: 0;
+   opacity: 1;
+ }
+ .search-btn:focus:before {
+   -webkit-transition: 0.5s all ease;
+   transition: 0.5s all ease;
+   left: 0;
+   right: 0;
+   opacity: 1;
+ }
+/* end of search button styling */
+
+.hide {
+    display: none;
+}
+
+/* beginning of card styling */
+.card {
+    margin: 2rem;
+    margin-top: 3rem;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.815);
+    overflow: hidden;
+    min-width: 235px;
+    max-width: 260px;
+    max-height: 400px;
+}
+
+@media only screen and (max-width: 767px) {
+    .card {
+        margin: 1rem;
+        margin-top: 3rem;
+    }
+}
+
+@media only screen and (max-width: 533px) {
+    .card {
+        min-width: 245px;
+    }
+}
+
+.card * {
+    color: black;
+}
+
+.card-title {
+    color: rgb(109, 109, 109);
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    min-height: 69px;
+}
+
+.card-title-small {
+    color: rgb(109, 109, 109);
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    min-height: 69px;
+    font-size: 1.05rem;
+}
+
+.top-marg {
+    margin-top: 2rem;
+}
+
+@media only screen and (max-width: 1199px) {
+    .card-title {
+        font-size: 1.2rem;
+    }
+}
+
+.card-text {
+    font-family: 'Quicksand', sans-serif;
+    min-width: 70px;
+}
+
+.card-img-top {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+}
+
+.img-div {
+    margin-top: 1rem;
+    outline: 26px solid rgb(230, 229, 229);
+    outline-offset: -10px;
+    overflow: hidden;
+}
+
+.row-end {
+    margin-bottom: 1rem;
+}
+
+.no-padding-left {
+    padding-left: 0;
+}
+
+.btn-go * {
+    background-color: white;
+    color: black;
+    border: none;
+    width: 230px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: #fff;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.btn-go {
+    font-weight: normal;
+    transition: all 0.3s;
+    color: white;
+    max-width: 200px; 
+}
+
+.btn-go::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.3s;
+    border: 1px solid black;
+    transform: scale(0.1, 1);
+}
+
+.btn-go:hover {
+    background: none;
+    letter-spacing: 1px;
+}
+
+.btn-go:hover::before {
+    opacity: 1;
+    transform: scale(1, 1);
+}
+
+.btn-go::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    transition: all 0.3s;
+}
+
+.btn-go:hover::after {
+    opacity: 0;
+    transform: scale(0.1, 1);
+}
+
+.btn-go:active span {
+    letter-spacing: 1px;
+}
+
+.btn-go:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.tooltip-inner {
+    background: #442626;
+    color: white;
+}
+
+.bs-tooltip-auto[x-placement^=top] .arrow::before,.bs-tooltip-top .arrow::before {     
+    border-top-color: #442626 !important; 
+}  
+
+.no-results {
+    font-size: 2rem;
+}
+
+.no-results-container {
+    margin-top: 3rem;
+    background-color: rgba(63, 39, 39, 0.8);
+    width: 75%;
+}
+
+.search-again {
+    font-size: 1.5rem;
+    width: 80%;
+    max-width: 330px;
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.144);
+    border-radius: 0;
+    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    color: white;
+}
+
+.search-again:hover {
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-left-color: rgba(255, 255, 255, 0.5);
+    border-right-color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 1px;
+    transition: all 0.3s;
+}
+
+.search-again::before {
+    content: "";
+    transform: scale(0.1, 1);
+    transition: all 0.3s;
+}
+
+.search-again:active {
+    letter-spacing: 1px;
+}
+
+.search-again:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.is-disabled {
+    z-index: -1;
+    cursor: not-allowed;
+    content: "OK"
+}
+
+.choices__heading {
+    display: none;
+}
+
+.search-titles-container {
+    padding-top: 1rem;
+    margin-top: 2.5rem;
+    background-color: rgba(63, 39, 39, 0.8);
+    width: 75%;
+    max-height: 200px;
+}
+
+.search-titles-title {
+    padding-top: 0;
+    font-size: 2rem;
+    padding-bottom: 1rem;
+}
+
+.search-titles {
+    color: black;
+    float: left;
+    padding-left: 1rem;
+    font-size: 1.1rem;
+    height: 40px;
+    width: 85%;
+    border: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.enter {
+    background-color: var(--clr-pink);
+    cursor: pointer;
+    height: 40px;
+    padding: 0;
+    width: 15%;
+    margin: 0;
+    border: none;
+    font-size: 1.1rem;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+/* this stops a thick border from appearing on focus */
+.search-titles:focus {
+    outline: none;
+}
+
+.enter:hover {
+    background-color: rgb(214, 75, 98);
+    border: none;
+}
+
+.close {
+    margin-top: 1rem;
+}
+
+.btn-close {
+    font-size: 1.5rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    color: white;
+}
+
+.btn-close:active {
+    outline: none;
+}
+
+.btn-close:focus {
+    outline: none;
+}

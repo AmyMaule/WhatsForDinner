@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Finder</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="body-wrap">
+        <div class="container-fluid main-header text-center ">
+            <div class="row no-margin ">
+                <div class="col-lg-6 col-12">
+                    <h1 class="title">What's for dinner?</h1>
+                </div>
+                <div class="col-lg-3 col-sm-6 btn-small-height">
+                    <div class="btn-container">
+                        <button class="btn search-by-name">
+                            <span>Search recipe titles</span>
+                        </button>
+                    </div> 
+                </div>
+                <div class="col-lg-3 col-sm-6 btn-small-height">
+                    <div class="btn-container">
+                        <button class="btn btn-random">
+                            <span>Get a random recipe</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- The div containing the search by title box -->
+        <div class="jumbotron container search-titles-container text-center align-items-center hide">
+            <div class="search-titles-title">Search recipes by title</div>
+            <div>
+                <input type="text" autocomplete="off" class="search-titles" placeholder="Search..." focus>
+                <button class="enter" onclick="searchQueryRecipeName()"><i class="fa fa-search"></i></button>
+            </div>
+            <div class="close float-left">
+                <button class="btn-close" onclick="hide()">Close</button>
+            </div>
+        </div>
+
+        <!-- The div containing all the search results -->
+        <div class="container-fluid results align-items-center">
+            <div class="row align-items-center justify-content-around starter-result"></div>
+            <div class="starter-no-result"></div>
+        </div>
+
+        <!-- the div containing all the search parameters -->
+        <div class="jumbotron container search-params">
+            <h3 class="search-heading">Find me a recipe...</h3>
+            <div class="row container-inner ready-time-container align-items-center">
+                <label class="col-md-2 ready-header dark-header" for="ready-time">Ready in:</label>
+                <div class="col-md-10 radio-container justify-content-center">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-3 col-sm-6 text-center">
+                            <input class="ready-input" id="ready-30" name="ready-time" type="radio" value="0-30">
+                            <label class="ready-label" for="ready-30">Up to 30 mins</label>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 text-center">
+                            <input class="ready-input" id="ready-60" name="ready-time" type="radio" value="30-60">
+                            <label class="ready-label" for="ready-60">Up to 60 mins</label>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 text-center">
+                            <input class="ready-input" id="ready-90" name="ready-time" type="radio" value="60-90">
+                            <label class="ready-label" for="ready-90">Up to 90 mins</label>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 text-center">
+                            <input class="ready-input" id="ready-190" name="ready-time" type="radio" value="90-plus">
+                            <label class="ready-label" for="ready-190">90+ mins</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h5 class="nutrient-header">Nutrients per serving:</h5>
+            <div class="nutrients row container no-gutters">
+                <div class="col-md-6 col-sm-12 text-center">
+                    <div class="row align-items-center">
+                        <label class="col-lg-4 col-sm-5 col-4 ready-header text-left dark-header" for="max-sugar-number">Max sugar:</label>
+                        <!-- 99 grams is the maximum sugar in any recipe on the Spoonacular API -->
+                        <input class="col-lg-3 col-md-4 col-3 range-input slider-selector" type="range" id="max-sugar-range" min="0" max="91" value="0">
+                        <input class="col-2 offset-lg-1 num-input slider-selector tool" type="number" id="max-sugar-number" min="0" max="91" placeholder="Grams" data-toggle="tooltip" data-placement="top" title="Max value: 90 grams">
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12 text-center">
+                    <div class="row align-items-center">
+                        <label class="col-lg-4 col-sm-5 col-4 ready-header text-left extra-padding-left dark-header" for="max-fat">Max fat:</label>
+                        <!-- 101 grams is the maximum fat in any recipe on the Spoonacular API -->
+                        <input class="col-lg-3 col-md-4 col-3 range-input slider-selector" type="range" id="max-fat-range" min="0" max="91" value="0">
+                        <input class="col-2 offset-lg-1 num-input slider-selector" type="number" id="max-fat-number" min="0" max="91" placeholder="Grams" data-toggle="tooltip" data-placement="top" title="Max value: 90 grams">
+                    </div>
+                </div>  
+            </div>
+            <div class="nutrients row container no-gutters">
+                <div class="col-md-6 col-sm-12 text-center">
+                    <div class="row align-items-center">
+                        <label class="col-lg-4 col-sm-5 col-4 ready-header text-left dark-header" for="max-calories">Max calories:</label>
+                        <!-- ~1250 is the maximum calories in any recipe on the Spoonacular API -->
+                        <input class="col-lg-3 col-md-4 col-3 range-input slider-selector" type="range" id="max-calories-range" min="0" max="1001" value="0">
+                        <input class="col-2 offset-lg-1 num-input right-align slider-selector" type="number" id="max-calories-number" min="0" max="1001" placeholder="Kcal" data-toggle="tooltip" data-placement="top" title="Max value: 1000 kcal  ">
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12 text-center">
+                    <div class="row align-items-center">
+                        <label class="col-lg-4 col-sm-5 col-4 ready-header text-left extra-padding-left dark-header" for="min-protein">Min protein:</label>
+                        <input class="col-lg-3 col-md-4 col-3 range-input slider-selector" type="range" id="min-protein-range" min="0" max="91" value="0">
+                        <input class="col-2 offset-lg-1 num-input slider-selector" type="number" id="min-protein-number" min="0" max="91" placeholder="Grams" data-toggle="tooltip" data-placement="top" title="Max value: 90 grams">
+                    </div>
+                </div>
+            </div>
+
+            <div class="cuisine-container">
+                <h5 class="cuisine-header nutrient-header">Type of cuisine:</h5>
+                <h4 class="small-header dark-header">Select cuisines to include (leave blank to include all):</h4>
+                <div class="row d-flex justify-content-center cuisine-selector-include">
+                    <div class="col-10">
+                        <select class="cuisine" id="cuisines-multiple-add" placeholder="Type to search" multiple>
+                        </select>
+                    </div>
+                </div>
+
+                <h4 class="small-header dark-header">Select cuisines to exclude:</h4>
+                <h6 class="small-subheader"> Any cuisines not selected above are automatically excluded. Note: Not all recipes are updated to include cuisines.</h6>
+                <div class="row d-flex justify-content-center cuisine-selector-include">
+                    <div class="col-10">
+                        <select class="cuisine" id="cuisines-multiple-remove" placeholder="Type to search" multiple>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="diet-type-container">
+                <h5 class="cuisine-header nutrient-header">Special diets:</h5>
+                <h4 class="small-header dark-header">Select any special diets:</h4>
+                <div class="col radio-container justify-content-center">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-3 col-sm-5 text-center">
+                            <input class="diet" id="vegan" name="diet-type" type="checkbox" value="vegan">
+                            <label class="ready-label" for="vegan">Vegan</label>
+                        </div>
+                        <div class="col-lg-3 col-sm-5 text-center">
+                            <input class="diet" id="vegetarian" name="diet-type" type="checkbox" value="vegetarian">
+                            <label class="ready-label" for="vegetarian">Vegetarian</label>
+                        </div>
+                        <div class="col-lg-3 col-sm-5 text-center">
+                            <input class="diet" id="gluten free" name="diet-type" type="checkbox" value="gluten free">
+                            <label class="ready-label" for="gluten free">Gluten Free</label>
+                        </div>
+                        <div class="col-lg-3 col-sm-5 text-center">
+                            <input class="diet" id="ketogenic" name="diet-type" type="checkbox" value="ketogenic">
+                            <label class="ready-label" for="ketogenic">Ketogenic</label>
+                        </div>
+                        <div class="col-lg-3 col-sm-5 text-center">
+                            <input class="diet" id="pescetarian" name="diet-type" type="checkbox" value="pescetarian">
+                            <label class="ready-label" for="pescetarian">Pescetarian</label>
+                        </div>
+                        <div class="col-lg-3 col-sm-5 text-center">
+                            <input class="diet" id="primal" name="diet-type" type="checkbox" value="primal">
+                            <label class="ready-label" for="primal">Primal</label>
+                        </div>
+                        <div class="col-lg-3 col-sm-5 text-center">
+                            <input class="diet" id="dairy free" name="diet-type" type="checkbox" value="dairy free">
+                            <label class="ready-label" for="dairy free">Dairy Free</label>
+                        </div>
+                        <div class="col-lg-3 col-sm-5 text-center">
+                            <input class="diet" id="paleolithic" name="diet-type" type="checkbox" value="paleolithic">
+                            <label class="ready-label" for="paleolithic">Paleo</label>
+                        </div>
+                        <!-- The Spoonacular website also gave lacto-vegetarian and ovo-vegetarian as options, but neither of these ever came up in search results, and lacto ovo vegetarian sometimes did come up in search results, so I decided to ditch them. Spoonacular also said that Whole30 was an option, but it brought up almost no Whole30 results, whereas Dairy Free did come up a lot in search results, so I replaced it. Paleo became paleolithic as that was what was coming up in testing. -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="ingredients-container">
+                <h5 class="cuisine-header nutrient-header">Search by ingredients</h5>
+                <h4 class="small-header dark-header">Select ingredients that <u>must</u> be included:</h4>
+                <div class="row d-flex justify-content-center cuisine-selector-include">
+                    <div class="col-10 ingreds-add">
+                        <select class="ingreds" id="ingreds-multiple-add" placeholder="Type to search" multiple>
+                        
+                        </select>
+                    </div>
+                </div>
+                
+                <h4 class="small-header dark-header">Select ingredients that <u>must</u> be excluded:</h4>
+                <div class="row d-flex justify-content-center cuisine-selector-include">
+                    <div class="col-10 focus">
+                        <select class="ingreds" id="ingreds-multiple-remove" placeholder="Type to search" multiple>
+                        </select>
+                    </div>
+                </div>  
+            </div>
+            <div class="flex-dark search-bar text-center">
+                <button class="search-btn">Search</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
