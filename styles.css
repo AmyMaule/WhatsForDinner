@@ -720,6 +720,10 @@ border: 1px solid rgba(32, 30, 30, 0.1);
     display: none;
 }
 
+input::placeholder {
+    color: rgb(223, 223, 219);
+}
+
 .search-titles-container {
     padding-top: 1rem;
     margin-top: 2.5rem;
