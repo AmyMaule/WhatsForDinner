@@ -9,7 +9,7 @@
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
-    <li><a href="#demo-&-screenshots">Demo & Screenshots</a></li>
+    <li><a href="#demo--screenshots">Demo & Screenshots</a></li>
     <li><a href="#current-issues">Current Issues</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
@@ -57,7 +57,7 @@ There are several issues caused by the inconsistency of the Spoonacular API data
 
 * Despite the API listing a set number of [diet types](https://spoonacular.com/food-api/docs#Diets), a search produces other “hidden” diet types that cannot be found in the Spoonacular API documentation. For example:
   - “Dairy free” is not listed as a diet type, but is present in many searches
-  - “Paleo” is listed as a diet type, but hasn’t been present in any search so far, while “Paleolithic” is not listed as a diet type, but has been present in several searches
+  - “Paleo” is listed as a diet type, but is present in very few searches, whereas “Paleolithic” is not listed as a diet type, but has been present in many searches
 
 * There are multiple issues with the “include ingredients” feature – any ingredients selected must be included in the recipe for it to show up (unlike a “What’s in my fridge” style recipe search). Sometimes a search using 2 ingredients known to be in a Spoonacular recipe will produce no results. For example:
   - A “search recipes by title” search for Raspberry produces a recipe "[Strawberry-Raspberry Cobbler](https://spoonacular.com/strawberry-raspberry-cobbler-661930)", but an “include ingredients” search of Strawberries and Raspberries produces no results at all. My theory is that the ingredients for this recipe ask for “fresh strawberries” and “fresh raspberries” and that is why the API is not matching “strawberries” or “raspberries” to this recipe.
