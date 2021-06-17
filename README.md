@@ -37,7 +37,7 @@ The "include ingredients" and "exclude ingredients" dropdown lists are populated
 * [Bootstrap](https://getbootstrap.com/) - the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins. 
 * [Choices JS](https://github.com/jshjohnson/Choices) - A vanilla, lightweight, configurable select box/text input plugin.
 
-* Live version here: https://amy-whatsfordinner.netlify.app/
+## Live version [here](https://amy-whatsfordinner.netlify.app/)
 
 
 ## Demo & Screenshots
