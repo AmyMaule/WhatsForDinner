@@ -16,7 +16,7 @@
     <li><a href="#license">License</a></li>
   </ol>
 </details>
-
+<br>
 
 
 <!-- ABOUT THE PROJECT -->
@@ -28,6 +28,9 @@ Due to some issues with the Spoonacular API outlined below, What’s For Dinner 
 The "include cuisine" and "exclude cuisine" dropdown lists are populated using the cuisines listed [here](https://spoonacular.com/food-api/docs#Cuisines) and are styled using [Choices JS](https://github.com/jshjohnson/Choices).<br>
 The "include ingredients" and "exclude ingredients" dropdown lists are populated using Spoonacular's top 1000 ingredients, downloadable [here](https://spoonacular.com/application/frontend/downloads/top-1k-ingredients.csv), also styled using [Choices JS](https://github.com/jshjohnson/Choices).
 
+## Live version [here](https://amy-whatsfordinner.netlify.app/).
+<br>
+
 ### Built With
 
 * HTML5
@@ -36,9 +39,7 @@ The "include ingredients" and "exclude ingredients" dropdown lists are populated
 * [jQuery](https://jquery.com/) - a JavaScript library designed to simplify HTML DOM tree traversal and manipulation, as well as event handling, CSS animation, and Ajax.
 * [Bootstrap](https://getbootstrap.com/) - the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins. 
 * [Choices JS](https://github.com/jshjohnson/Choices) - A vanilla, lightweight, configurable select box/text input plugin.
-
-## Live version [here](https://amy-whatsfordinner.netlify.app/)
-
+<br>
 
 ## Demo & Screenshots
 <div align="center">
@@ -71,14 +72,14 @@ There are several issues caused by the inconsistency of the Spoonacular API data
 * There are multiple issues with the “include ingredients” feature – any ingredients selected must be included in the recipe for it to show up (unlike a “What’s in my fridge” style recipe search). Sometimes a search using 2 ingredients known to be in a Spoonacular recipe will produce no results. For example:
   - A “search recipes by title” search for Raspberry produces a recipe [Strawberry-Raspberry Cobbler](https://spoonacular.com/strawberry-raspberry-cobbler-661930), but an “include ingredients” search for "strawberries" and "raspberries" produces no results at all. It is possible that as the ingredients for this recipe ask for “fresh strawberries” and “fresh raspberries”, the API is not matching “strawberries” or “raspberries” to this recipe.
   - There are many other examples like the one above; the include ingredients feature seems overall to not be well supported by the Spoonacular API.
-
+<br>
 
 <!-- CONTRIBUTING -->
 ## Contributing
 
 If you find a bug, please open an issue [here](https://github.com/AmyMaule/WhatsForDinner/issues/new), including as much information as you can.<br>
 You can request new features or modify current features [here](https://github.com/AmyMaule/WhatsForDinner/issues/new) - please include search queries and expected results.
-
+<br>
 <!-- LICENSE -->
 ## License
 
