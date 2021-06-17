@@ -58,6 +58,8 @@ There are several issues caused by the inconsistency of the Spoonacular API data
 
 * Many Spoonacular recipes do not have cuisines included, which makes the “Search by cuisine” feature a little unreliable.
 
+* The calorie and macronutrient data for some recipes has been incorrectly estimated (some examples of <15 calorie meals [here](https://spoonacular.com/alouette-crumbled-goat-cheese-provencal-mini-tacos-632246), [here](https://spoonacular.com/my-favourite-ricotta-sandwich-652861), [here](https://spoonacular.com/truffle-linguine-with-tomatoes-and-pancetta-663885) and [here](https://spoonacular.com/grilled-salmon-salad-with-blood-orange-cilantro-vinaigrette-645849).
+
 * Despite the API listing a set number of [diet types](https://spoonacular.com/food-api/docs#Diets), a search produces other “hidden” diet types that cannot be found in the Spoonacular API documentation. For example:
   - “Dairy free” is not listed as a diet type, but is present in many searches
   - “Paleo” is listed as a diet type, but is present in very few searches, whereas “Paleolithic” is not listed as a diet type, but has been present in many searches
