@@ -20,6 +20,7 @@ const dietChecklist = document.querySelectorAll(".diet");
 
 const api = {
     base: "https://api.spoonacular.com/recipes/complexSearch",
+    // the key is here only because this app is a frontend only proof of concept, few people will ever see the code and there is no penalty for sending too many requests so for it is here for simplicity
     key: "5ce9fb57d0d34bd98a3b49b90bfd67d5",
 };
 
