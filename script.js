@@ -18,11 +18,7 @@ const maxCaloriesElement = document.querySelector("#max-calories-number");
 const minProteinElement = document.querySelector("#min-protein-number");
 const dietChecklist = document.querySelectorAll(".diet");
 
-const api = {
-    base: "https://api.spoonacular.com/recipes/complexSearch",
-    // the key is here only because this app is a frontend only proof of concept, few people will ever see the code and there is no penalty for sending too many requests so for it is here for simplicity
-    key: "5ce9fb57d0d34bd98a3b49b90bfd67d5",
-};
+const api_base = "https://api.spoonacular.com/recipes/complexSearch";
 
 // The syncRangeNumValues function syncs the values of each of the nutrient inputs
 function syncRangeNumValues(e) {
@@ -166,7 +162,7 @@ sliderSelectors.forEach(selector => {
 function disableCuisines(e) {
     let currentCuisine;
     let otherCuisine;
-    // If the clicked selector was for including a cuisine, then currentCuisine is set to the include selector and otherCuisine is set to the remove selector, and vice versa if the clicked selector was for excluding a cuisine 
+    // If the clicked selector was for including a cuisine, then currentCuisine is set to the include selector and otherCuisine is set to the remove selector, and vice versa if the clicked selector was for excluding a cuisine
     if (e.target.id == "cuisines-multiple-add") {
         currentCuisine = cuisinesAdd;
         otherCuisine = cuisinesRemove;
@@ -226,7 +222,7 @@ function populateIngredInputs(e) {
         'value',
         'label',
         false
-    ); 
+    );
     // The items that were set to to selected = true must have that value reset to false, or the mostCommonIngreds array can populate the exclude input with the selected items as well
     for (let i = 0; i < mostCommonIngreds.length; i++) {
         selectedOptions.forEach(option => {
@@ -280,7 +276,7 @@ function getFinalReadyTime() {
     // readyTime will be the max number of minutes chosen - if no radio button is selected, readyTime should be set as the highest number of minutes, which is 190
     let readyTime = "190";
     // Check to see which of the radio buttons was selected, if any
-    readyTimeButtons.forEach(button => {     
+    readyTimeButtons.forEach(button => {
         if (button.checked) {
             readyTime = button.id;
             // The button id will be ready-XX with XX being the max number of minutes, so slice starts at position 6 and removes ready-
@@ -363,15 +359,15 @@ function getFinalIngredients(readyTime, includeCuisineList, excludeCuisineList, 
         });
         excludeIngList = excludeIngList.replace(/ /g, "%20").slice(0, -1);
     }
-       
+
     // Call displayRecipes using all of the criteria established in this function
     fetchRecipes(includeIngList, excludeIngList, includeCuisineList, excludeCuisineList, readyTime, dietList, maxSugar, maxFat, maxCalories, minProtein);
 }
 
 function fetchRecipes(includeIngList, excludeIngList, includeCuisineList, excludeCuisineList, readyTime, dietList, maxSugar, maxFat, maxCalories, minProtein) {
     // Full API call with all parameters included:
-    // fetch(`${api.base}?apiKey=${api.key}&includeIngredients=${includeIngList}&excludeIngredients=${excludeIngList}&cuisine=${includeCuisineList}&excludeCuisine=${excludeCuisineList}&maxReadyTime=${readyTime}&diet=${dietList}&minProtein=${minProtein}&maxFat=${maxFat}&maxCalories=${maxCalories}&maxSugar=${maxSugar}&addRecipeInformation=true&number=10)
-    let apiCall = `${api.base}?apiKey=${api.key}&maxReadyTime=${readyTime}&addRecipeInformation=true&sort=random&number=10`;
+    // fetch(`${api_base}?apiKey=${api.key}&includeIngredients=${includeIngList}&excludeIngredients=${excludeIngList}&cuisine=${includeCuisineList}&excludeCuisine=${excludeCuisineList}&maxReadyTime=${readyTime}&diet=${dietList}&minProtein=${minProtein}&maxFat=${maxFat}&maxCalories=${maxCalories}&maxSugar=${maxSugar}&addRecipeInformation=true&number=10)
+    let apiCall = `${api_base}?apiKey=${api_key}&maxReadyTime=${readyTime}&addRecipeInformation=true&sort=random&number=10`;
     if (includeIngList) apiCall += `&includeIngredients=${includeIngList}`;
     if (excludeIngList) apiCall += `&excludeIngredients=${excludeIngList}`;
     if (includeCuisineList) apiCall += `&cuisine=${includeCuisineList}`;
@@ -450,7 +446,7 @@ function getRandomRecipe() {
     window.scrollTo(0,0);
     starterResult.innerHTML = "";
     starterNoResult.innerHTML = "";
-    fetch(`${api.base}?apiKey=${api.key}&addRecipeInformation=true&sort=random&number=1`)
+    fetch(`${api_base}?apiKey=${api_key}&addRecipeInformation=true&sort=random&number=1`)
     .then(result => result.json())
     .then(results => {
         let randomResult = results.results[0];
@@ -508,7 +504,7 @@ function searchQueryRecipeName() {
     window.scrollTo(0,0);
     starterResult.innerHTML = "";
     starterNoResult.innerHTML = "";
-    fetch(`${api.base}?apiKey=${api.key}&titleMatch=${searchBar.value}&addRecipeInformation=true&sort=random&number=10`)
+    fetch(`${api_base}?apiKey=${api_key}&titleMatch=${searchBar.value}&addRecipeInformation=true&sort=random&number=10`)
     .then(results => results.json())
     .then(recipes => displayRecipes(recipes));
     searchTitlesContainer.classList.add("hide");
