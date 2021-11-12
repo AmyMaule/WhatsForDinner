@@ -18,7 +18,10 @@ const maxCaloriesElement = document.querySelector("#max-calories-number");
 const minProteinElement = document.querySelector("#min-protein-number");
 const dietChecklist = document.querySelectorAll(".diet");
 
-const api_base = "https://api.spoonacular.com/recipes/complexSearch";
+const api = {
+  base = "https://api.spoonacular.com/recipes/complexSearch",
+  key = "b993f71021fe44689f322731ca4530c8 "
+};
 
 // The syncRangeNumValues function syncs the values of each of the nutrient inputs
 function syncRangeNumValues(e) {
@@ -359,8 +362,8 @@ function getFinalIngredients(readyTime, includeCuisineList, excludeCuisineList, 
 
 function fetchRecipes(includeIngList, excludeIngList, includeCuisineList, excludeCuisineList, readyTime, dietList, maxSugar, maxFat, maxCalories, minProtein) {
   // Full API call with all parameters included:
-  // fetch(`${api_base}?apiKey=${api.key}&includeIngredients=${includeIngList}&excludeIngredients=${excludeIngList}&cuisine=${includeCuisineList}&excludeCuisine=${excludeCuisineList}&maxReadyTime=${readyTime}&diet=${dietList}&minProtein=${minProtein}&maxFat=${maxFat}&maxCalories=${maxCalories}&maxSugar=${maxSugar}&addRecipeInformation=true&number=10)
-  let apiCall = `${api_base}?apiKey=${api_key}&maxReadyTime=${readyTime}&addRecipeInformation=true&sort=random&number=10`;
+  // fetch(`${api.base}?apiKey=${api.key}&includeIngredients=${includeIngList}&excludeIngredients=${excludeIngList}&cuisine=${includeCuisineList}&excludeCuisine=${excludeCuisineList}&maxReadyTime=${readyTime}&diet=${dietList}&minProtein=${minProtein}&maxFat=${maxFat}&maxCalories=${maxCalories}&maxSugar=${maxSugar}&addRecipeInformation=true&number=10)
+  let apiCall = `${api.base}?apiKey=${api.key}&maxReadyTime=${readyTime}&addRecipeInformation=true&sort=random&number=10`;
   if (includeIngList) apiCall += `&includeIngredients=${includeIngList}`;
   if (excludeIngList) apiCall += `&excludeIngredients=${excludeIngList}`;
   if (includeCuisineList) apiCall += `&cuisine=${includeCuisineList}`;
@@ -435,7 +438,7 @@ function getRandomRecipe() {
   window.scrollTo(0,0);
   starterResult.innerHTML = "";
   starterNoResult.innerHTML = "";
-  fetch(`${api_base}?apiKey=${api_key}&addRecipeInformation=true&sort=random&number=1`)
+  fetch(`${api.base}?apiKey=${api.key}&addRecipeInformation=true&sort=random&number=1`)
   .then(result => result.json())
   .then(results => {
     let randomResult = results.results[0];
@@ -493,7 +496,7 @@ function searchQueryRecipeName() {
   window.scrollTo(0,0);
   starterResult.innerHTML = "";
   starterNoResult.innerHTML = "";
-  fetch(`${api_base}?apiKey=${api_key}&titleMatch=${searchBar.value}&addRecipeInformation=true&sort=random&number=10`)
+  fetch(`${api.base}?apiKey=${api.key}&titleMatch=${searchBar.value}&addRecipeInformation=true&sort=random&number=10`)
   .then(results => results.json())
   .then(recipes => displayRecipes(recipes));
   searchTitlesContainer.classList.add("hide");
