@@ -19,8 +19,8 @@ const minProteinElement = document.querySelector("#min-protein-number");
 const dietChecklist = document.querySelectorAll(".diet");
 
 const api = {
-  base = "https://api.spoonacular.com/recipes/complexSearch",
-  key = "b993f71021fe44689f322731ca4530c8 "
+  base: "https://api.spoonacular.com/recipes/complexSearch",
+  key: "b993f71021fe44689f322731ca4530c8"
 };
 
 // The syncRangeNumValues function syncs the values of each of the nutrient inputs
