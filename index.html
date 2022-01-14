@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What's For Dinner</title>
+    <title>Recipe Finder</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -13,7 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.js" defer></script>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+    <script src="script.js" type="module" defer></script>
 </head>
 <body>
     <div class="body-wrap">
@@ -27,7 +27,7 @@
                         <button class="btn search-by-name">
                             <span>Search recipe titles</span>
                         </button>
-                    </div> 
+                    </div>
                 </div>
                 <div class="col-lg-3 col-sm-6 btn-small-height">
                     <div class="btn-container">
@@ -100,7 +100,7 @@
                         <input class="col-lg-3 col-md-4 col-3 range-input slider-selector" type="range" id="max-fat-range" min="1" max="91" value="0">
                         <input class="col-2 offset-lg-1 num-input slider-selector" type="number" id="max-fat-number" min="1" max="91" placeholder="Grams" data-toggle="tooltip" data-placement="top" title="Max value: 90 grams">
                     </div>
-                </div>  
+                </div>
             </div>
             <div class="nutrients row container no-gutters">
                 <div class="col-md-6 col-sm-12 text-center">
@@ -188,18 +188,18 @@
                 <div class="row d-flex justify-content-center cuisine-selector-include">
                     <div class="col-10 ingreds-add">
                         <select class="ingreds" id="ingreds-multiple-add" placeholder="Type to search" multiple>
-                        
+
                         </select>
                     </div>
                 </div>
-                
+
                 <h4 class="small-header dark-header">Select ingredients that <u>must</u> be excluded:</h4>
                 <div class="row d-flex justify-content-center cuisine-selector-include">
                     <div class="col-10 focus">
                         <select class="ingreds" id="ingreds-multiple-remove" placeholder="Type to search" multiple>
                         </select>
                     </div>
-                </div>  
+                </div>
             </div>
             <div class="flex-dark search-bar text-center">
                 <button class="search-btn">Search</button>
