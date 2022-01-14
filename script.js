@@ -7,7 +7,6 @@ const searchParams = document.querySelector(".search-params");
 const searchByRecipeName = document.querySelector(".search-by-name");
 const randomRecipe = document.querySelector(".btn-random");
 const searchButton = document.querySelector(".search-btn");
-const searchAgain = document.querySelector(".search-again");
 const readyTimeButtons = document.querySelectorAll(".ready-input");
 const includeIngredsSelector = document.querySelector("#ingreds-multiple-add");
 const excludeIngredsSelector = document.querySelector("#ingreds-multiple-remove");
@@ -436,6 +435,7 @@ function displayRecipes(recipes) {
 searchButton.addEventListener("click", getFinalReadyTime);
 
 function getRandomRecipe() {
+  searchTitlesContainer.classList.add("hide");
   window.scrollTo(0,0);
   starterResult.innerHTML = "";
   starterNoResult.innerHTML = "";
@@ -467,7 +467,7 @@ function getRandomRecipe() {
 }
 randomRecipe.addEventListener("click", getRandomRecipe);
 
-function amend() {
+window.amend = function() {
   window.scrollTo(0,0);
   if (searchParams.classList.contains("hide")) searchParams.classList.remove("hide");
   starterResult.innerHTML = "";
@@ -475,13 +475,13 @@ function amend() {
 }
 
 // The reset function is called when the title or "start again" button is clicked, and it rests all the search parameters
-function reset() {
+window.reset = function() {
     // This seemed to be the easiest way to reset everything
     window.location = window.location;
 }
 document.querySelector(".title").addEventListener("click", reset);
 
-function hide() {
+window.hide = function() {
   searchTitlesContainer.classList.add("hide");
 }
 
@@ -493,7 +493,7 @@ searchByRecipeName.addEventListener("click", function() {
   }
 });
 
-function searchQueryRecipeName() {
+window.searchQueryRecipeName = function() {
   window.scrollTo(0,0);
   starterResult.innerHTML = "";
   starterNoResult.innerHTML = "";
