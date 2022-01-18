@@ -58,7 +58,7 @@ function syncRangeNumValues(e) {
 
 // The cuisine list comes directly from the API, though isn't available as a downloadable file, format so I just made it into an array
 const allCuisines = ["African", "American", "British", "Cajun", "Caribbean", "Chinese", "Eastern European", "European", "French", "German", "Greek", ,"Indian", "Irish", "Italian", "Japanese", "Jewish", "Korean", "Latin American", "Mediterranean", "Mexican", "Middle Eastern", "Nordic", "Southern", "Spanish", "Thai", "Vietnamese"];
-let cuisineListObj = [];
+const cuisineListObj = [];
 
 function createCuisineObject(arr) {
   arr.forEach(cuisine => {
@@ -73,7 +73,7 @@ function createCuisineObject(arr) {
 createCuisineObject(allCuisines);
 
 
-let cuisinesAdd = new Choices('#cuisines-multiple-add', {
+const cuisinesAdd = new Choices('#cuisines-multiple-add', {
   removeItemButton: true,
   duplicateItemsAllowed: false,
   searchResultLimit: 20,
@@ -83,7 +83,7 @@ let cuisinesAdd = new Choices('#cuisines-multiple-add', {
   choices: cuisineListObj
 });
 
-let cuisinesRemove = new Choices('#cuisines-multiple-remove', {
+const cuisinesRemove = new Choices('#cuisines-multiple-remove', {
   removeItemButton: true,
   duplicateItemsAllowed: false,
   searchResultLimit: 20,
@@ -93,7 +93,7 @@ let cuisinesRemove = new Choices('#cuisines-multiple-remove', {
   choices: cuisineListObj
 });
 
-let ingredientsAdd = new Choices('#ingreds-multiple-add', {
+const ingredientsAdd = new Choices('#ingreds-multiple-add', {
   removeItemButton: true,
   duplicateItemsAllowed: false,
   noChoicesText: 'No items to choose from',
@@ -102,7 +102,7 @@ let ingredientsAdd = new Choices('#ingreds-multiple-add', {
   resetScrollPosition: false
 });
 
-let ingredientsRemove = new Choices('#ingreds-multiple-remove', {
+const ingredientsRemove = new Choices('#ingreds-multiple-remove', {
   removeItemButton: true,
   duplicateItemsAllowed: false,
   noChoicesText: 'No items to choose from',
@@ -111,7 +111,7 @@ let ingredientsRemove = new Choices('#ingreds-multiple-remove', {
   resetScrollPosition: false
 });
 
-let mostCommonIngreds = [];
+const mostCommonIngreds = [];
 // The gatherIngredients function creates an XHR object to get the csv file for the 1000 most common ingredients, to display them in the "include ingredients" and "exclude ingredients" boxes - the other ingredients will be searchable and addable, but only the top 1000 ingreds will be displayed as options
 (function gatherIngredients() {
   let xhr = new XMLHttpRequest();
@@ -123,11 +123,11 @@ let mostCommonIngreds = [];
 })();
 
 function processIngreds(allText) {
-  let all1000Lines = allText.split(/\r\n|\n/);
+  const all1000Lines = allText.split(/\r\n|\n/);
   all1000Lines.forEach(line => {
-    let ingredientArray = line.split(";");
-    let ingredient = ingredientArray[0];
-    let capitalisedIngredient = ingredient.charAt(0).toUpperCase() + ingredient.slice(1);
+    const ingredientArray = line.split(";");
+    const ingredient = ingredientArray[0];
+    const capitalisedIngredient = ingredient.charAt(0).toUpperCase() + ingredient.slice(1);
     mostCommonIngreds.push(
       {
         value: capitalisedIngredient,
@@ -172,8 +172,8 @@ function disableCuisines(e) {
     otherCuisine = cuisinesAdd;
   }
   // For some reason, the selectedCuisinesOuter array doesn't get smaller as cuisines are removed, it stays the same length and even grows when the same cuisine is added and removed, so the forEach pushes only the active (currently selected) cuisines to the selectedCuisines array, which is redeclared as empty each time the function runs
-  let selectedCuisines = [];
-  let selectedCuisinesOuter = currentCuisine._currentState.items;
+  const selectedCuisines = [];
+  const selectedCuisinesOuter = currentCuisine._currentState.items;
   selectedCuisinesOuter.forEach(cuisine => {
     // if cuisine.active is true, then at least one cuisine has been selected, so its name (cuisine.label) is pushed to selectedCuisines
     if (cuisine.active) {
@@ -202,7 +202,7 @@ function populateIngredInputs(e) {
       choicesObj = ingredientsAdd;
   }
   // Make an array using the current selected options for the include selector, to make sure the included items stay included - declaring selectedOptions in this way means that it will always be updated with the current selected items
-  let selectedOptions = Array.from(selector.selectedOptions);
+  const selectedOptions = Array.from(selector.selectedOptions);
   for (let i = 0; i < mostCommonIngreds.length; i++) {
     selectedOptions.forEach(option => {
       // Find the selected options in the mostCommonIngreds array, where all of the selected ingredients are set to false, because both the include and exclude inputs share the mostCommonIngreds array. Briefly set selected to be true, because before re-setting the choices, the selected items must be removed (.removeActiveItems()) or else they will be duplicated when .setChoices() is run.
@@ -242,7 +242,7 @@ function includeIngreds(e) {
       clickedSelector = excludeIngredsSelector;
   }
   // optionsArray contains a list of all of the food items currently selected as ingredients to be included (if excluded was clicked) or excluded if included was clicked
-  let optionsArray = [];
+  const optionsArray = [];
   for (let i = 0; i < clickedSelector.length; i++) {
       optionsArray.push(clickedSelector.options[i].value);
   }
@@ -318,10 +318,10 @@ function getFinalDietsAndNutrients(readyTime, includeCuisineList, excludeCuisine
   });
   dietList = dietList.replace(/ /g, "%20").slice(0, -1);
 
-  let maxSugar = maxSugarElement.value;
-  let maxFat = maxFatElement.value;
-  let maxCalories = maxCaloriesElement.value;
-  let minProtein = minProteinElement.value;
+  const maxSugar = maxSugarElement.value;
+  const maxFat = maxFatElement.value;
+  const maxCalories = maxCaloriesElement.value;
+  const minProtein = minProteinElement.value;
   getFinalIngredients(readyTime, includeCuisineList, excludeCuisineList, dietList, maxSugar, maxFat, maxCalories, minProtein);
 }
 
@@ -330,8 +330,8 @@ function getFinalIngredients(readyTime, includeCuisineList, excludeCuisineList, 
   let includeIngList = "";
   let excludeIngList = "";
   // Add the ingredients currently active in the include ingredients selector to a final ingredsToInclude array, before turning it into a string with each ingredient separated by a comma (as the API requires) to pass to the API call
-  let ingredsToInclude = [];
-  let ingredsToExclude = [];
+  const ingredsToInclude = [];
+  const ingredsToExclude = [];
 
   if (includeIngredsSelector.length > 0) {
     for (let i = 0; i < includeIngredsSelector.options.length; i++) {
@@ -384,7 +384,7 @@ function fetchRecipes(includeIngList, excludeIngList, includeCuisineList, exclud
 function displayRecipes(recipes) {
   window.scrollTo(0,0);
   // recipeResults is an array of recipes that match the search criteria
-  let recipeResults = recipes.results;
+  const recipeResults = recipes.results;
   if (recipeResults.length == 0) {
     starterNoResult.innerHTML += `
     <div class="jumbotron no-results-container">
@@ -442,7 +442,7 @@ function getRandomRecipe() {
   fetch(`${api.base}?apiKey=${api.key}&addRecipeInformation=true&sort=random&number=1`)
   .then(result => result.json())
   .then(results => {
-    let randomResult = results.results[0];
+    const randomResult = results.results[0];
       starterResult.innerHTML += `
       <div class="card col align-items-center">
       <div class="img-div">
