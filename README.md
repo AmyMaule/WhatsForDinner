@@ -28,7 +28,7 @@ Due to some issues with the Spoonacular API outlined below, What’s For Dinner 
 The "include cuisine" and "exclude cuisine" dropdown lists are populated using the cuisines listed [here](https://spoonacular.com/food-api/docs#Cuisines) and are styled using [Choices JS](https://github.com/jshjohnson/Choices).<br>
 The "include ingredients" and "exclude ingredients" dropdown lists are populated using Spoonacular's top 1000 ingredients, downloadable [here](https://spoonacular.com/application/frontend/downloads/top-1k-ingredients.csv), also styled using [Choices JS](https://github.com/jshjohnson/Choices).
 
-## Live version [here](https://amy-whatsfordinner.netlify.app/).
+## Live version [here](https://whats-for-dinner.pages.dev/).
 <br>
 
 ### Built With
