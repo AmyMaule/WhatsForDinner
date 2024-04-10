@@ -1,4 +1,3 @@
-import API_KEY from "./apikey.js";
 const searchTitlesContainer = document.querySelector(".search-titles-container");
 const searchBar = document.querySelector(".search-titles");
 const starterResult = document.querySelector(".starter-result");
@@ -20,7 +19,7 @@ const dietChecklist = document.querySelectorAll(".diet");
 
 const api = {
   base: "https://api.spoonacular.com/recipes/complexSearch",
-  key: API_KEY
+  key: process.env.API_KEY
 };
 
 // The syncRangeNumValues function syncs the values of each of the nutrient inputs
