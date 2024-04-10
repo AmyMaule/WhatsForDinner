@@ -1,3 +1,4 @@
+import API_KEY from "./apikey.js";
 const searchTitlesContainer = document.querySelector(".search-titles-container");
 const searchBar = document.querySelector(".search-titles");
 const starterResult = document.querySelector(".starter-result");
