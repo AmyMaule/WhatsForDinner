@@ -19,7 +19,7 @@ const dietChecklist = document.querySelectorAll(".diet");
 
 const api = {
   base: "https://api.spoonacular.com/recipes/complexSearch",
-  key: process.env.API_KEY
+  key: API_KEY
 };
 
 // The syncRangeNumValues function syncs the values of each of the nutrient inputs
